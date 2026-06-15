@@ -3,7 +3,9 @@ const app = express();
 app.use(express.json());
 
 const MASTER_KEY = process.env.MASTER_KEY || 'CHANGE_THIS_MASTER_KEY';
-let subscribers = {};   // { VIP001: true }
+let subscribers = {
+  "VIP001": true
+};
 let signals = [];       // [{id, action, symbol, side, time}]
 let nextId = 1;
 
