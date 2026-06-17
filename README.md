@@ -1,0 +1,1 @@
+TRD Copier License System
