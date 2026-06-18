@@ -7,9 +7,7 @@ app.use(cors());
 app.use(express.json());
 
 const PORT = process.env.PORT || 3000;
-const LICENSE_FILE = "licenses.json";
 const SIGNAL_FILE = "signals.json";
-const ADMIN_PASSWORD = "TRD12345";
 
 function readJSON(file) {
   if (!fs.existsSync(file)) fs.writeFileSync(file, "[]");
@@ -21,11 +19,11 @@ function writeJSON(file, data) {
 }
 
 app.get("/check-license", (req, res) => {
+  const licenses = JSON.parse(fs.readFileSync("licenses.json", "utf8"));
   const { license, account } = req.query;
-  const licenses = readJSON(LICENSE_FILE);
 
-  const found = licenses.find(
-    x => x.license === license &&
+  const found = licenses.find(x =>
+    x.license === license &&
     String(x.account) === String(account) &&
     x.active === true
   );
@@ -42,20 +40,22 @@ app.post("/signal", (req, res) => {
 
   const signal = {
     id: Date.now(),
+    action: req.body.action || "OPEN",
+    masterTicket: req.body.masterTicket,
     symbol: req.body.symbol,
     type: req.body.type,
-    lot: req.body.lot,
+    lot: req.body.lot || 0,
     sl: req.body.sl || 0,
     tp: req.body.tp || 0,
     time: new Date().toISOString()
   };
 
   signals.push(signal);
-  writeJSON(SIGNAL_FILE, signals.slice(-50));
+  writeJSON(SIGNAL_FILE, signals.slice(-100));
 
   res.json({ ok: true, signal });
 });
 
 app.listen(PORT, () => {
-  console.log(`TRD Copier running on port ${PORT}`);
+  console.log(TRD Copier running on port ${PORT});
 });
