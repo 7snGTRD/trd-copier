@@ -3,5 +3,11 @@
     "license": "TRD001",
     "account": "260887117",
     "active": true
+  },
+  {
+    "license": "TRD002",
+    "account": "رقم_حساب_العميل",
+    "active": true
   }
 ]
+
