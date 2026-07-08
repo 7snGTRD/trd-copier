@@ -1,17 +1,7 @@
 [
   {
     "license": "TRD001",
-    "account": "474086072",
-    "active": true
-  },
-  {
-    "license": "TRD002",
-    "account": "00000000",
-    "active": true
-  },
-  {
-    "license": "TRD003",
-    "account": "250501226",
+    "account": "000000000",
     "active": true
   },
   {
@@ -25,23 +15,8 @@
     "active": true
   },
   {
-    "license": "TRD006",
-    "account": "249636073",
-    "active": true
-  },
-  {
     "license": "TRD007",
     "account": "27349820",
-    "active": true
-  },
-  {
-    "license": "TRD008",
-    "account": "250501208",
-    "active": true
-  },
-  {
-    "license": "TRD009",
-    "account": "250507197",
     "active": true
   },
   {
